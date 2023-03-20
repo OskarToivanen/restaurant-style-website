@@ -73,46 +73,79 @@ const HomePage: React.FC = () => {
     },
   ]
 
+  interface Testimonial {
+    id: number
+    name: string
+    role: string
+    quote: string
+    imageUrl: string
+  }
+
+  // Add this array of testimonials to your HomePage.tsx file
+  const testimonials: Testimonial[] = [
+    {
+      id: 1,
+      name: 'John Doe',
+      role: 'Customer',
+      quote:
+        'The food here is absolutely amazing! I highly recommend this restaurant.',
+      imageUrl: '/path/to/john-doe.jpg',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      role: 'Food Blogger',
+      quote:
+        'The ambiance and service are top-notch. A must-visit spot for foodies!',
+      imageUrl: '/path/to/jane-smith.jpg',
+    },
+    {
+      id: 2,
+      name: 'Donald Duck',
+      role: 'Food Critic',
+      quote:
+        'Wide wine list and wonderful dessert. I recommend to everyone! I would like to come back here again and again.',
+      imageUrl: '/path/to/jane-smith.jpg',
+    },
+  ]
+
+  const galleryImages = [
+    {
+      id: 1,
+      imageUrl: '/path/to/image1.jpg',
+      alt: 'Image 1 description',
+    },
+    {
+      id: 2,
+      imageUrl: '/path/to/image2.jpg',
+      alt: 'Image 2 description',
+    },
+    // ... other images ...
+  ]
+
   return (
     <div>
       <Header />
 
       <main>
-        {/* Add a welcome section */}
         <section>
           <LandingSection />
         </section>
 
-        {/* Add menu highlights */}
         <section>
-          <h2>Menu Highlights</h2>
           <Menu title='Main Courses' items={menuItems} />
         </section>
 
-        {/* Add testimonials section */}
         <section>
-          <h2>What Our Customers Say</h2>
-          <Testimonials />
-          <Testimonials />
-          <Testimonials />
+          <Testimonials testimonials={testimonials} />
         </section>
 
-        {/* Add gallery section */}
         <section>
-          <h2>Our Gallery</h2>
-          <Gallery />
-        </section>
-
-        {/* Add events section */}
-        <section>
-          <h2>Upcoming Events</h2>
-          <EventCard />
-          <EventCard />
+          <Gallery images={galleryImages} />
         </section>
 
         {/* Add contact form section */}
         <section>
-          <h2>Contact Us</h2>
           <Contact />
         </section>
       </main>
